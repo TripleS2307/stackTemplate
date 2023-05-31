@@ -1,0 +1,19 @@
+"aivision.0003": {
+    "solutionExposure": "prod",
+    "name": "${Messages.solutionsHub.solutions.aivision.solutionName()}",
+    "description": "${Messages.solutionsHub.solutions.aivision.stackDescription()}",
+    "longDescription": {
+        "description": "${Messages.solutionsHub.solutions.aivision.longDescription()}"
+    },
+    "icon": {
+        "iconLine1": "Vision",
+        "iconLine2": "",
+        "iconLine3": ""
+    },
+    "terraformVersion": "0.14.x",
+    "isFreeTier": false,
+    "type": "service",
+    "categoryId": "1"
+}
+
+

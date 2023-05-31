@@ -1,0 +1,70 @@
+# Copyright (c) 2022, Oracle and/or its affiliates. All rights reserved.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+
+title: "AI Vision Resource Manager Stack"
+stackDescription: ${Messages.solutionsHub.solutions.aivision.stackDescription()}
+schemaVersion: 1.1.0
+version: "20200301"
+locale: "en"
+
+variableGroups:
+  - title: ${Messages.solutionsHub.generalConfig()}
+    visible: false
+    variables:
+      - tenancy_ocid
+
+  - title: ${Messages.solutionsHub.solutions.aivision.variableGroups.iamGroup()}
+    visible: true
+    variables:
+      - vision_group_name
+      - vision_root_policy_name
+
+  - title: ${Messages.solutionsHub.solutions.aivision.variableGroups.customModelGroup()}
+    visible: true
+    variables:
+      - use_custom_model
+
+  - title: ${Messages.solutionsHub.solutions.aivision.variableGroups.batchAnalysisGroup()}
+    visible: true
+    variables:
+      - use_batch_analysis
+      - compartment_ocid
+
+variables:
+  vision_group_name:
+    type: string
+    required: true
+    title: ${Messages.solutionsHub.solutions.aivision.variables.vision_group_name.title()}
+    description: ${Messages.solutionsHub.solutions.aivision.variables.vision_group_name.description()}
+    default: ${Messages.solutionsHub.solutions.aivision.variables.vision_group_name.default()}
+    pattern: "^[a-zA-Z0-9-_]+$"
+
+  vision_root_policy_name:
+    type: string
+    required: true
+    title: ${Messages.solutionsHub.solutions.aivision.variables.vision_root_policy_name.title()}
+    description: ${Messages.solutionsHub.solutions.aivision.variables.vision_root_policy_name.description()}
+    default: ${Messages.solutionsHub.solutions.aivision.variables.vision_root_policy_name.default()}
+    pattern: "^[a-zA-Z0-9-_]+$"
+
+  use_custom_model:
+    type: boolean
+    required: true
+    title: ${Messages.solutionsHub.solutions.aivision.variables.use_custom_model.title()}
+    description: ${Messages.solutionsHub.solutions.aivision.variables.use_custom_model.description()}
+    default: false
+
+  use_batch_analysis:
+    type: boolean
+    required: true
+    title: ${Messages.solutionsHub.solutions.aivision.variables.use_batch_analysis.title()}
+    description: ${Messages.solutionsHub.solutions.aivision.variables.use_batch_analysis.description()}
+    default: false
+
+  compartment_ocid:
+    type: oci:identity:compartment:id
+    required: true
+    title: ${Messages.solutionsHub.solutions.aivision.variables.compartment_ocid.title()}
+    description: ${Messages.solutionsHub.solutions.aivision.variables.compartment_ocid.description()}
+    visible: use_batch_analysis
+    
